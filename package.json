@@ -1,4 +1,9 @@
 {
+  "source": "src/index.html",
+  "scripts": {
+    "dev": "parcel",
+    "build": "parcel build"
+  },
   "packageManager": "yarn@3.6.4",
   "devDependencies": {
     "parcel": "^2.10.0"
