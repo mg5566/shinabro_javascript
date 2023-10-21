@@ -23,12 +23,17 @@
           <span class="total-count text-xs">(0)</span>
         </button>
       </nav>
-      <div id="products" class="mt-8 grid grid-cols-2 gap-4"></div>
+      <div
+        id="products"
+        class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4"
+      ></div>
       <div class="cart-layer fixed inset-0">
         <div
-          class="cart-dimmed-bg fixed left-0 top-0 bottom-0 w-1/2 bg-black opacity-30"
+          class="cart-dimmed-bg fixed left-0 top-0 bottom-0 w-full bg-black opacity-30"
         ></div>
-        <div class="fixed right-0 top-0 bottom-0 w-1/2 bg-white">
+        <div
+          class="fixed right-0 top-0 bottom-0 w-2/3 sm:w-1/2 bg-white py-2 px-4"
+        >
           <div class="flex justify-end">
             <button
               type="button"
