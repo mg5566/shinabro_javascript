@@ -1,10 +1,11 @@
 {
   "name": "mike-math",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "type": "module",
   "main": "src/index.cjs",
   "module": "src/index.esm.js",
+  "types": "src/index.d.ts",
   "exports": {
     ".": {
       "require": "./src/index.cjs",
