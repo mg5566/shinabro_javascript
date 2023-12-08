@@ -1,0 +1,25 @@
+{
+  "name": "@mike.kangaroo.world/mini-query",
+  "version": "0.0.1",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/mini-query.umd.cjs",
+  "module": "dist/mini-query.js",
+  "exports": {
+    ".": {
+      "import": "./dist/mini-query.js",
+      "require": "./dist/mini-query.umd.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0"
+  }
+}
