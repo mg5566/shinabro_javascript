@@ -5,12 +5,10 @@
   "files": [
     "dist"
   ],
-  "main": "dist/mini-query.umd.cjs",
-  "module": "dist/mini-query.js",
+  "module": "./src/main.js",
   "exports": {
     ".": {
-      "import": "./dist/mini-query.js",
-      "require": "./dist/mini-query.umd.cjs"
+      "import": "./src/main.js"
     }
   },
   "scripts": {

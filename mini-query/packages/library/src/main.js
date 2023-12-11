@@ -1,12 +1,12 @@
 class MiniQuery {
-  private elements: Element[];
-  constructor(selector: string, container?: Element) {
+  elements;
+  constructor(selector, container) {
     this.elements = Array.from(
       (container ?? document).querySelectorAll(selector)
     );
   }
 
-  click(handler: EventListener) {
+  click(handler) {
     this.elements.forEach((element) => {
       element.addEventListener("click", handler);
     });
@@ -17,6 +17,6 @@ class MiniQuery {
   }
 }
 
-export const $ = (selector: string, container?: Element) => {
+export const $ = (selector, container) => {
   return new MiniQuery(selector, container);
 };

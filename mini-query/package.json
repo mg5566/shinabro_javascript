@@ -5,10 +5,12 @@
   "main": "index.js",
   "private": true,
   "workspaces": [
+    "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "build": "yarn workspaces @mike.kangaroo.world/mini-query build",
+    "example": "yarn workspace example dev",
+    "build": "yarn workspace @mike.kangaroo.world/mini-query build",
     "test": "yarn workspace @mike.kangaroo.world/mini-query test"
   },
   "author": "",
