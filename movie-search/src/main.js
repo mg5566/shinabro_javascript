@@ -1,6 +1,4 @@
 import { start } from "./router";
-import { renderIndex } from "./pages";
-import { renderSearch } from "./pages/search";
 import { routes } from "./routes";
 
 const renderBackground = () => {
