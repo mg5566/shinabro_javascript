@@ -1,13 +1,4 @@
-// import { routes } from "./routes";
-
 let routes;
-
-window.addEventListener("popstate", (event) => {
-  if (routes[location.pathname]) {
-    routes[location.pathname]();
-    return;
-  }
-});
 
 export const goto = (url, { push } = {}) => {
   const pathName = url.split("?")[0]; // '/' '/search' ...
@@ -27,5 +18,13 @@ export const goto = (url, { push } = {}) => {
 
 export const start = (params) => {
   routes = params.routes;
+
+  window.addEventListener("popstate", (event) => {
+    if (routes[location.pathname]) {
+      routes[location.pathname]();
+      return;
+    }
+  });
+
   goto(location.pathname + location.search);
 };

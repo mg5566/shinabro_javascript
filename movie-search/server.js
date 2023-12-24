@@ -2,25 +2,49 @@
 import express from "express";
 import cors from "cors";
 import movies from "./Movie.json" assert { type: "json" };
+import fs from "fs";
+import { getInitialHTML } from "./dist/index.js";
 
 const app = express();
 const port = 3000;
 
 app.use(cors());
 
+app.use(express.static("dist"));
+
 app.get("/", (req, res) => {
-  res.send("Hello World!!!!");
+  fs.readFile("index.html", (err, file) => {
+    res.send(file.toString().replace("<!--app-->", getInitialHTML["/"]));
+  });
 });
 
-app.get("/search", (req, res) => {
-  console.log("query", req.query);
-  console.log("movie length", movies.length);
-
-  const filteredMovies = movies.filter((movie) => {
-    return movie.title.toLowerCase().includes(req.query.query.toLowerCase());
+function getFilteredMovies(query) {
+  return movies.filter((movie) => {
+    return movie.title.toLowerCase().includes(query.toLowerCase());
   });
+}
 
-  res.json(filteredMovies);
+app.get("/search", (req, res) => {
+  const filteredMovies = getFilteredMovies(req.query.query);
+  fs.readFile("index.html", (err, file) => {
+    res.send(
+      file.toString().replace(
+        "<!--app-->",
+        getInitialHTML["/search"]({
+          movies: filteredMovies,
+        })
+      )
+    );
+  });
+});
+
+app.get("/api/search", (req, res) => {
+  res.json(getFilteredMovies(req.query.query));
+  // const filteredMovies = movies.filter((movie) => {
+  //   return movie.title.toLowerCase().includes(req.query.query.toLowerCase());
+  // });
+
+  // res.json(filteredMovies);
 });
 
 app.listen(port, () => {

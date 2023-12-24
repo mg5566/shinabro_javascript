@@ -1,13 +1,17 @@
 import { goto } from "../router";
 
-export const renderIndex = () => {
-  document.querySelector("#app").innerHTML = `
+export const getInitialHTML = () => {
+  return `
     <h1>Movie Info</h1>
     <form>
       <input type="search" name="query" />
       <button type="submit">Search</button>
     </form>
   `;
+};
+
+export const renderIndex = () => {
+  document.querySelector("#app").innerHTML = getInitialHTML();
 
   document.body.querySelector("form").addEventListener("submit", (e) => {
     e.preventDefault();
